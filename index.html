@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="index.css">
+    
 </head>
 <body>
     <div>
@@ -176,7 +177,46 @@
                     </div>
                     <div class="col">
                         <h2>Schedule an Appointment</h2>
-                        <label> asdf asdf asdf asdf asdf asdf sadf asdf </label>
+                        <form>
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="firstName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">Last name</label>
+                                <input type="text" class="form-control" id="lastName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="emailAddress" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="emailAddress">
+                            </div>
+                            <div class="mb-3">
+                                <label for="requestedService" class="form-label">Requested Service</label>
+                                <select class="form-select" id="requestedService" onchange="updateServiceExperts()">
+                                    <option value="">-</option>
+                                    <option value="Service1">Psychotherapy: Individual</option>
+                                    <option value="Service1">Psychotherapy: Group</option>
+                                    <option value="Service2">Psychological Assessment</option>
+                                    <option value="Service3">Career Counselling</option>
+                                    <option value="Service3">Career Neurodegenerative Disease Research</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="serviceExperts" class="form-label">Relevant Service Experts</label>
+                                <select class="form-select" id="serviceExperts" onchange="updatePractitionerCard()">
+                                    <option value="">-</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="appointmentDate" class="form-label">Appointment Date</label>
+                                <input type="datetime-local" class="form-control datepicker" id="appointmentDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your message</label>
+                                <textarea class="form-control" id="message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Submit</button>
+                        </form>
                     </div>
                 </div>
                 <div class="row about-us" id="ContactUs">
@@ -194,5 +234,6 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
 </html>
