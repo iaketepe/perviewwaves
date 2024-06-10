@@ -44,26 +44,53 @@ body {
         padding-bottom: 3.5%;
 }
 
+h1 {
+    font-size: 64px;
+}
+
+
 .inner-one {
     background-color: #777;
 }
 
-.carousel-item {
+#Service-Carousel .carousel-item {
     height: 32rem;
+    
     background-color: #777;
     position: relative;
 }
 
+
+#Expert-Card-Slider .carousel-item {
+    height: 32rem;
+    position: relative;
+    
+}
+
+
 .carousel-container {
     position: absolute;
     width: 80%;
-    margin-left: 15%;
+    margin-left: 10%;
     padding-top: 6%;
 }
 
-h1 {
-    font-size: 64px;
+.carousel-button-lt {
+    padding-right: 70px;
 }
+
+.carousel-button-rt {
+    padding-left: 70px;
+}
+
+#Expert-Card-Slider .carousel-button-lt {
+    padding-right: 50px;
+}
+
+#Expert-Card-Slider .carousel-button-rt {
+    padding-left: 50px;
+}
+
 
 .about-us {
     padding-top: 2.5%;
@@ -76,3 +103,22 @@ img.one {
     width: 50%;
     border-radius: 4%;
 }
+
+.test {
+    padding-left: 60px;
+}
+
+.cs {
+    height: 512px;
+    width: 512px;
+    position: relative;
+}
+
+img.two {
+    height: 300px;
+    width: 510px;
+    border-radius: 1.5%;
+    
+    
+}
+
