@@ -1,26 +1,59 @@
-const appointmentDateInput = document.getElementById('appointmentDate');
-const calendarPopup = document.getElementById('calendarPopup');
 
-const minTime = '09:00';
-const maxTime = '17:00';
-
-appointmentDateInput.setAttribute('min', getDateTimeString(minTime));
-appointmentDateInput.setAttribute('max', getDateTimeString(maxTime));
-
-function getDateTimeString(time) {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}T${time}`;
+const serviceExpertOptions = {
+        "Service1": [
+            { value: "Expert1", text: "Dr. Smith (Psychotherapy)" },
+            { value: "Expert2", text: "Dr. Johnson (Psychotherapy)" }
+        ],
+        "Service1G": [
+            { value: "Expert1", text: "Dr. Smith (Psychotherapy)" },
+            { value: "Expert3", text: "Dr. Jackie (Psychotherapy)" },
+            { value: "Expert4", text: "Dr. Treto (Psychotherapy)" }
+        ],
+        "Service2": [
+            { value: "Expert5", text: "Dr. Brown (Psychological Assessment)" }
+        ],
+        "Service3": [
+            { value: "Expert6", text: "Dr. Green (Career Counselling)" },
+            { value: "Expert7", text: "Dr. Gumbo (Career Counselling)" }
+        ],
+        "Service4": [
+            { value: "Expert8", text: "Dr. Taylor (Neurodegenerative Research)" }
+        ]
 }
 
-appointmentDateInput.addEventListener('focus', function() {
-    calendarPopup.style.display = 'block';
-});
 
-document.addEventListener('click', function(event) {
-    if (!calendarPopup.contains(event.target) && event.target !== appointmentDateInput) {
-        calendarPopup.style.display = 'none';
+function updateServiceExperts() {
+    const requestedService = document.getElementById("requestedService").value;
+    const serviceExperts = document.getElementById("serviceExperts");
+
+    serviceExperts.innerHTML = '<option value="">-</option>';
+
+
+    if (serviceExpertOptions[requestedService]) {
+        serviceExperts.innerHTML = '';
+        serviceExpertOptions[requestedService].forEach(expert => {
+            const option = document.createElement("option");
+            option.value = expert.value;
+            option.textContent = expert.text;
+            serviceExperts.appendChild(option);
+        });
     }
-});
+    
+}
+
+
+function updatePractitionerCard() {
+    const selectedExpert = document.getElementById("serviceExperts").value;
+    if (selectedExpert) {
+        // Slide to the carousel item with the corresponding id
+        const carousel = document.getElementById("Expert-Card-Slider");
+        const expertCard = document.getElementById(selectedExpert);
+
+        // Ensure the expert card exists before trying to navigate
+        if (expertCard) {
+            // Activate the correct card by targeting its ID
+            const carouselInstance = new bootstrap.Carousel(carousel);
+            carouselInstance.to(expertCard.index);  // `index` can be used if needed for precise control
+        }
+    }
+}
